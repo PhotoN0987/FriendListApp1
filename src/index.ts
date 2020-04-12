@@ -2,11 +2,6 @@ import axios from 'axios'
 
 var element = document.getElementById('user-list')
 
-
-
-
-
-
 axios
 .get('https://firestore.googleapis.com/v1/projects/friend-list-app-7de6d/databases/(default)/documents/users')
 .then(response =>{
