@@ -23,20 +23,7 @@ export class ListView {
 
   // ロード時
   public async loadView() {
-
-    // ページタイトルを表示
-    this.userList?.insertAdjacentHTML('beforebegin', `<h1>おともだちリスト</h1>`)
-
-    // 友達リストの項目名を表示
-    this.userList?.insertAdjacentHTML('beforebegin',
-    `<ul>
-      <li>名前</li>
-      <li>メールアドレス</li>
-      <li>誕生日</li>
-      <li>好きなもの</li>
-      <li>備考</li>
-    </ul>`)
-
+    // データベース（Firebase）取得処理
     // 結果が取得できるまで待つ
     const users = await this.getFriendList()
 
@@ -44,8 +31,6 @@ export class ListView {
       this.userList?.insertAdjacentHTML('afterbegin', '<p style="color: red">おともだちリストが取得できませんでした。</p>')
       return
     }
-
-    
 
     // usersの中身の数だけ繰り返す
     for (const user of users) {
@@ -66,13 +51,13 @@ export class ListView {
       const remarks = user.remarks
 
       // ユーザーの名前と、好きなものをpタグで出力
-      this.userList?.insertAdjacentHTML('beforebegin',
-      `<ul>
-        <li>${name}</li>
-        <li>${mail}</li>
-        <li>${birthday}</li>
-        <li>${favorite}</li>
-        <li>${remarks}</li>
+      this.userList?.insertAdjacentHTML('afterbegin',
+      `<ul class="friend_list">
+        <li class="name_space">${name}</li>
+        <li class="mail_space">${mail}</li>
+        <li class="birthday_space">${birthday}</li>
+        <li class="favorite_space">${favorite}</li>
+        <li class="remarks_space">${remarks}</li>
       </ul>`)
     }
     
