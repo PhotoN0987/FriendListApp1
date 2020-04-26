@@ -23,6 +23,20 @@ export class ListView {
 
   // ロード時
   public async loadView() {
+
+    // ページタイトルを表示
+    this.userList?.insertAdjacentHTML('beforebegin', `<h1>おともだちリスト</h1>`)
+
+    // 友達リストの項目名を表示
+    this.userList?.insertAdjacentHTML('beforebegin',
+    `<ul>
+      <li>名前</li>
+      <li>メールアドレス</li>
+      <li>誕生日</li>
+      <li>好きなもの</li>
+      <li>備考</li>
+    </ul>`)
+
     // 結果が取得できるまで待つ
     const users = await this.getFriendList()
 
@@ -31,18 +45,37 @@ export class ListView {
       return
     }
 
+    
+
     // usersの中身の数だけ繰り返す
     for (const user of users) {
 
       // ユーザーの名前を取得
       const name = user.name
 
+      // ユーザーのメールアドレスを取得
+      const mail = user.mail
+
+      // ユーザーの誕生日を取得
+      const birthday = user.birthday
+
       // ユーザーの好きなものを取得
       const favorite = user.favorite
 
+      // ユーザーの備考を取得
+      const remarks = user.remarks
+
       // ユーザーの名前と、好きなものをpタグで出力
-      this.userList?.insertAdjacentHTML('afterbegin', `<p>名前：${name}、好きなもの：${favorite}</p>`)
+      this.userList?.insertAdjacentHTML('beforebegin',
+      `<ul>
+        <li>${name}</li>
+        <li>${mail}</li>
+        <li>${birthday}</li>
+        <li>${favorite}</li>
+        <li>${remarks}</li>
+      </ul>`)
     }
+    
   }
 
   // buttonがクリックされたとき
