@@ -3,17 +3,21 @@ import axios from 'axios'
 export class RegistView {
 
   //#region Components
-  userName: HTMLInputElement | null;
-  favorite: HTMLInputElement | null;
+  name: HTMLInputElement | null;
+  mail: HTMLInputElement | null;
   birthday: HTMLInputElement | null;
+  favorite: HTMLInputElement | null;
+  remarks: HTMLInputElement | null;
   registButton: HTMLElement | null;
   //#endregion
 
   constructor() {
     // HTMLElement取得
-    this.userName = <HTMLInputElement>document.getElementById('user-name')
-    this.favorite = <HTMLInputElement>document.getElementById('favorite')
+    this.name = <HTMLInputElement>document.getElementById('user-name')
+    this.mail = <HTMLInputElement>document.getElementById('user-mail')
     this.birthday = <HTMLInputElement>document.getElementById('birthday')
+    this.favorite = <HTMLInputElement>document.getElementById('favorite')
+    this.remarks = <HTMLInputElement>document.getElementById('remarks')
     this.registButton = document.getElementById('regist-button')
 
     // イベントの登録
@@ -25,17 +29,26 @@ export class RegistView {
   // buttonがクリックされたとき
   public registButtonClick() {
     // 値表示
-    alert(`user-name:${this.userName?.value}\nfavorite:${this.favorite?.value}\nbirthday:${this.birthday?.value}`)
+    alert(`user-name:${this.name?.value}\nuser-mail:${this.mail?.value}\nbirthday:${this.birthday?.value}\nfavorite:${this.favorite?.value}\nremarks:${this.remarks?.value}`)
 
     //データベースに追加
     axios.post('users', {
     fields: {
         name: {
-          stringValue: this.userName?.value
+          stringValue: this.name?.value
+        },
+        mail: {
+          stringValue: this.mail?.value
+        },
+        birthday: {
+          stringValue: this.birthday?.value
         },
         favorite: {
           stringValue: this.favorite?.value
-        }
+        },
+        remarks: {
+          stringValue: this.remarks?.value
+        },
       }
     })
 
