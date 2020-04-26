@@ -1,0 +1,26 @@
+.title {
+    padding: .25em 0 .25em .75em;
+    border-left: 6px solid rgb(62, 255, 88);
+    font-size: 25px;
+    margin: 10px;
+    padding: 0;
+}
+
+.base-text {
+    width: 92%;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #dfdfdf;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    margin: 10px;
+}
+
+.date-text {
+    width: 200px;
+}
+
+.base-button{
+    display: block;
+    
+}
