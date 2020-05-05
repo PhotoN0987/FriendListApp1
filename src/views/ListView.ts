@@ -12,11 +12,6 @@ export class ListView {
     // HTMLElement取得
     this.userList = document.getElementById('user-list')
     this.button = document.getElementById('button')
-
-    // イベントの登録
-    this.button?.addEventListener("click", () => {
-      this.buttonClick()
-    });
   }
 
   //#region Events
@@ -63,26 +58,7 @@ export class ListView {
     
   }
 
-  // buttonがクリックされたとき
-  public buttonClick() {
-    // 追加処理
-    axios.post('users', {
-      fields: {
-        name: {
-          stringValue: 'Foo'
-        },
-        favorite: {
-          stringValue: 'Bar'
-        }
-      }
-    })
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
+  
 
   //#endregion
 
