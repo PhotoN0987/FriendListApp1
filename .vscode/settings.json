@@ -3,5 +3,6 @@
     "Regist",
     "afterbegin",
     "beforebegin"
-  ]
+  ],
+  "git.ignoreLimitWarning": true
 }
