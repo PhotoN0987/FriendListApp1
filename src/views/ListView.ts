@@ -5,24 +5,19 @@ export class ListView {
 
   //#region Components
   userList: HTMLElement | null;
-  button: HTMLElement | null;
   //#endregion
 
   constructor() {
     // HTMLElement取得
     this.userList = document.getElementById('user-list')
-    this.button = document.getElementById('button')
 
-    // イベントの登録
-    this.button?.addEventListener("click", () => {
-      this.buttonClick()
-    });
   }
 
   //#region Events
 
   // ロード時
   public async loadView() {
+    // データベース（Firebase）取得処理
     // 結果が取得できるまで待つ
     const users = await this.getFriendList()
 
@@ -37,34 +32,32 @@ export class ListView {
       // ユーザーの名前を取得
       const name = user.name
 
+      // ユーザーのメールアドレスを取得
+      const mail = user.mail
+
+      // ユーザーの誕生日を取得
+      const birthday = user.birthday
+
       // ユーザーの好きなものを取得
       const favorite = user.favorite
 
+      // ユーザーの備考を取得
+      const remarks = user.remarks
+
       // ユーザーの名前と、好きなものをpタグで出力
-      this.userList?.insertAdjacentHTML('afterbegin', `<p>名前：${name}、好きなもの：${favorite}</p>`)
+      this.userList?.insertAdjacentHTML('afterbegin',
+      `<ul class="friend_list">
+        <li class="name_space">${name}</li>
+        <li class="mail_space">${mail}</li>
+        <li class="birthday_space">${birthday}</li>
+        <li class="favorite_space">${favorite}</li>
+        <li class="remarks_space">${remarks}</li>
+      </ul>`)
     }
+    
   }
 
-  // buttonがクリックされたとき
-  public buttonClick() {
-    // 追加処理
-    axios.post('users', {
-      fields: {
-        name: {
-          stringValue: 'Foo'
-        },
-        favorite: {
-          stringValue: 'Bar'
-        }
-      }
-    })
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
+  
 
   //#endregion
 
