@@ -7,4 +7,4 @@ axios.defaults.baseURL = 'https://firestore.googleapis.com/v1/projects/friend-li
 
 // Views
 new ListView().loadView()
-new RegistView().loadView()
+new RegistView()
