@@ -28,9 +28,7 @@ export class RegistView {
 
   // buttonがクリックされたとき
   public registButtonClick() {
-    // 値表示
-    //alert(`user-name:${this.name?.value}\nuser-mail:${this.mail?.value}\nbirthday:${this.birthday?.value}\nfavorite:${this.favorite?.value}\nremarks:${this.remarks?.value}`)
-
+    
     document.location.href='index.html'
 
     // データベースに追加
