@@ -29,9 +29,11 @@ export class RegistView {
   // buttonがクリックされたとき
   public registButtonClick() {
     // 値表示
-    alert(`user-name:${this.name?.value}\nuser-mail:${this.mail?.value}\nbirthday:${this.birthday?.value}\nfavorite:${this.favorite?.value}\nremarks:${this.remarks?.value}`)
+    //alert(`user-name:${this.name?.value}\nuser-mail:${this.mail?.value}\nbirthday:${this.birthday?.value}\nfavorite:${this.favorite?.value}\nremarks:${this.remarks?.value}`)
 
-    //データベースに追加
+    document.location.href='index.html'
+
+    // データベースに追加
     axios.post('users', {
     fields: {
         name: {
@@ -51,23 +53,11 @@ export class RegistView {
         },
       }
     })
-
-    // 追加処理
-    // axios.post('users', {
-    //   fields: {
-    //     name: {
-    //       stringValue: 'Foo'
-    //     },
-    //     favorite: {
-    //       stringValue: 'Bar'
-    //     }
-    //   }
-    // })
-    //   .then(response => {
-    //     console.log(response)
-    //   })
-    //   .catch(error => {
-    //     console.log(error)
-    //   })
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 }
