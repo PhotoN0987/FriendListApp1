@@ -1,29 +1,37 @@
+.friend_list_title {
+    border-bottom: 1px solid #707070;
+}
+
+
 .friend_list_title li {
     display: inline-block;
     color: green;
     font-size: 20px;
-    border-bottom: 1px, solid, black;
-    line-height: 2px;
 }
 
 .name_space {
     width: 150px;
+    height: auto;
 }
 
 .mail_space {
     width: 300px;
+    height: auto;
 }
 
 .birthday_space {
     width: 150px;
+    height: auto;
 }
 
 .favorite_space {
     width: 300px;
+    height: auto;
 }
 
 .remarks_space {
     width: 500px;
+    height: auto;
 }
 
 .friend_list li {
