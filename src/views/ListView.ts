@@ -5,14 +5,12 @@ export class ListView {
 
   //#region Components
   userList: HTMLElement | null;
-  button: HTMLElement | null;
   //#endregion
 
   constructor() {
     // HTMLElement取得
     this.userList = document.getElementById('user-list')
-    this.button = document.getElementById('button')
-    
+
   }
 
   //#region Events
